@@ -37,7 +37,7 @@ function App() {
 
   const [addWords, setAddWords] = useState({
       english: '',
-      korean: ''
+      korean: '',
   });
 
   const { english, korean } = addWords;
@@ -50,7 +50,7 @@ function App() {
         [e.target.name]: e.target.value
       })
   }
-
+  
   const onSave = () => {
 
     if(english === '' || korean === '') {
@@ -81,7 +81,7 @@ function App() {
     <div className="app">
       <div className="container">
         <AddWords english={english} korean={korean} onChange={onChange} onSave={onSave}/>
-        <Link to="/test"><button className="test-button">시험 보기</button></Link>
+        <Link to="/test"><button className="main-button test-button">시험 보기</button></Link>
         <WordsList wordsList={wordsList}/>
       </div>
     </div>

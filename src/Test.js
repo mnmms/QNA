@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Test.css';
 
-const Test = () => {
+const Test = ({ history }) => {
     return (
         <div>
-            Test
+            <button onClick={() => history.push('/')} style={{ color: 'black' }}>돌아가기</button>
         </div>
     )
 }
