@@ -14,10 +14,12 @@
 }
 
 .add-box button {
-    background-color: red;
+    /* background-color: red; */
+    background-color: #2291EC;
     margin-bottom: 2%;
 }
 
 .add-box button:hover {
-    background-color: #ea0000;
+    /* background-color: #ea0000; */
+    background-color: #1E83D5;
 }
