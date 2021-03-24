@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 import WordsList from './WordsList';
-import Test from './Test';
+// import Test from './Test';
 import AddWords from './AddWords';
 
 function App() {
@@ -22,6 +23,16 @@ function App() {
       english: 'bag',
       korean: '가방'
     },
+    {
+      id: 4,
+      english: 'book',
+      korean: '책'
+    },
+    {
+      id: 5,
+      english: 'people',
+      korean: '사람들'
+    },
   ]);
 
   const [addWords, setAddWords] = useState({
@@ -29,9 +40,9 @@ function App() {
       korean: ''
   });
 
-  const { english, korean } = wordsList;
+  const { english, korean } = addWords;
 
-  // const nextId = useRef(4);
+  const nextId = useRef(6);
 
   const onChange = e => {
     setAddWords({
@@ -41,15 +52,36 @@ function App() {
   }
 
   const onSave = () => {
-    // alert('등록되었습니다!');
 
+    if(english === '' || korean === '') {
+      alert('영단어와 뜻 모두 입력해주세요!');
+      setAddWords({
+        english: '',
+        korean: ''
+      })
+    } else {
+      setWordsList([
+        ...wordsList,
+        {
+          id: nextId.current,
+          // english: english,
+          // korean: korean
+          ...addWords
+        }
+      ])
+      setAddWords({
+        english: '',
+        korean: ''
+      })
+      nextId.current++;
+    }
   }
 
   return (
     <div className="app">
       <div className="container">
         <AddWords english={english} korean={korean} onChange={onChange} onSave={onSave}/>
-        <Test />
+        <Link to="/test"><button className="test-button">시험 보기</button></Link>
         <WordsList wordsList={wordsList}/>
       </div>
     </div>

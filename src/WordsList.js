@@ -9,7 +9,7 @@ const WordsList = ({ wordsList }) => {
             {/* <div style={{ fontWeight: 'bold', fontSize: '1.3em' }}>영단어</div> */}
             {wordsList.map(item => {
                 return (
-                    <Words item={item}/>
+                    <Words key={item.id} item={item}/>
                 )
             })}
         </div>

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Test.css';
 
 const Test = () => {
     return (
-        <>
-            <button className="test-button">시험 보기</button>
-        </>
+        <div>
+            Test
+        </div>
     )
 }
 

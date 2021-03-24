@@ -6,9 +6,9 @@
     width: 100%;
     display: block;
     margin-bottom: 3%;
-    padding: 3%;
+    padding: 5% 3%;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
     box-sizing: border-box;
 }
