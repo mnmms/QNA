@@ -1,17 +1,15 @@
-import react, { useState } from 'react';
-import wordsList from './wordsList.css';
+import React from 'react';
+import './WordsList.css';
+import Words from './Words';
+
 
 const WordsList = ({ wordsList }) => {
     return (
         <div className="wordsList">
-            <h2>영단어 목록</h2>
+            {/* <div style={{ fontWeight: 'bold', fontSize: '1.3em' }}>영단어</div> */}
             {wordsList.map(item => {
                 return (
-                <div key={item.id}>
-                    <span>{item.id}. </span>
-                    <span>{item.english} </span>
-                    <span>{item.korean}</span>
-                </div>
+                    <Words item={item}/>
                 )
             })}
         </div>

@@ -1,0 +1,23 @@
+.add-box {
+    width: 100%;
+}
+
+.input-box {
+    width: 100%;
+    display: block;
+    margin-bottom: 3%;
+    padding: 3%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+}
+
+.add-box button {
+    background-color: red;
+    margin-bottom: 2%;
+}
+
+.add-box button:hover {
+    background-color: #ea0000;
+}

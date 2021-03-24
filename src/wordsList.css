@@ -1,5 +1,10 @@
 .wordsList {
     border: 1px solid #ddd;
     border-radius: 20px;
-    margin-top: 5%;
+    margin: 5% auto 0;
+    padding: 3%;
+}
+
+.words {
+    text-align: left;
 }

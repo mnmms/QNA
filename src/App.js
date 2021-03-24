@@ -1,6 +1,7 @@
-import react, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './App.css';
 import WordsList from './WordsList';
+import Test from './Test';
 import AddWords from './AddWords';
 
 function App() {
@@ -8,13 +9,18 @@ function App() {
   const [wordsList, setWordsList] = useState([
     {
       id: 1,
-      english: 'english',
-      korean: '영어'
+      english: 'apple',
+      korean: '사과'
     },
     {
       id: 2,
       english: 'korean',
       korean: '한글'
+    },
+    {
+      id: 3,
+      english: 'bag',
+      korean: '가방'
     },
   ]);
 
@@ -25,7 +31,7 @@ function App() {
 
   const { english, korean } = wordsList;
 
-  const nextId = useRef(3);
+  // const nextId = useRef(4);
 
   const onChange = e => {
     setAddWords({
@@ -43,7 +49,7 @@ function App() {
     <div className="app">
       <div className="container">
         <AddWords english={english} korean={korean} onChange={onChange} onSave={onSave}/>
-        {/* <button>시험보기</button> */}
+        <Test />
         <WordsList wordsList={wordsList}/>
       </div>
     </div>

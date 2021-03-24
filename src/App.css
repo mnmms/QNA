@@ -1,3 +1,14 @@
+button {
+  width: 100%;
+  color: white;
+  padding: 3%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+  font-weight: bold;
+  text-align: center;
+}
+
 .app {
   width: 100%;
   height: 100%;
@@ -6,7 +17,6 @@
 }
 .container {
   width: 30%;
-  /* height: 300px; */
   margin: 0 auto;
   border-radius: 30px;
   padding: 30px;
