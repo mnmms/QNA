@@ -1,11 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import WordsList from './WordsList';
-// import Test from './Test';
 import AddWords from './AddWords';
 
 function App() {
+
+  useEffect(() => {
+    console.log('useEffect 실행');
+    return () => console.log('cleanup 함수 호출');
+  }, []);
 
   const [wordsList, setWordsList] = useState([
     {
@@ -77,12 +81,22 @@ function App() {
     }
   }
 
+  const onRemove = id => {
+    // console.log(id);
+    
+    let words = wordsList.filter(word => {
+      return word.id !== id;
+    })
+
+    setWordsList(words); // ! 여기서 id값 그대로인거 해결하기 먼저
+  }
+
   return (
     <div className="app">
       <div className="container">
         <AddWords english={english} korean={korean} onChange={onChange} onSave={onSave}/>
         <Link to="/test"><button className="main-button test-button">시험 보기</button></Link>
-        <WordsList wordsList={wordsList}/>
+        <WordsList wordsList={wordsList} onRemove={onRemove}/>
       </div>
     </div>
   );
