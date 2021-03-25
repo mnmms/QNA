@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Words = ({item}) => {
+const Words = ({ item, onRemove }) => {
 
     const { id, english, korean } = item;
 
@@ -8,7 +8,11 @@ const Words = ({item}) => {
         <div className="words">
             <span>{id}. </span>
             <span><b>{english} </b></span>
-            <span>{korean}</span>
+            <span>{korean} </span>
+            <button
+                style={{ background: 'none', color: '#00E162', border: 'none', fontWeight: 'bold' }}
+                onClick={() => onRemove(id)}
+                >삭제</button>
         </div>
     )
 }
