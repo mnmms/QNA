@@ -6,7 +6,6 @@ const Words = ({ item, onRemove }) => {
 
     return (
         <div className="words">
-            <span>{id}. </span>
             <span><b>{english} </b></span>
             <span>{korean} </span>
             <button

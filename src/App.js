@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './App.css';
 import WordsList from './WordsList';
+import GotoTest from './GotoTest';
 import AddWords from './AddWords';
 
 function App() {
@@ -95,7 +95,7 @@ function App() {
     <div className="app">
       <div className="container">
         <AddWords english={english} korean={korean} onChange={onChange} onSave={onSave}/>
-        <Link to="/test"><button className="main-button test-button">시험 보기</button></Link>
+        <GotoTest />
         <WordsList wordsList={wordsList} onRemove={onRemove}/>
       </div>
     </div>
