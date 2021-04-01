@@ -82,13 +82,14 @@ function App() {
   }
 
   const onRemove = id => {
-    // console.log(id);
-    
-    let words = wordsList.filter(word => {
-      return word.id !== id;
-    })
 
-    setWordsList(words); // ! 여기서 id값 그대로인거 해결하기 먼저
+    if(window.confirm('정말 삭제하시겠습니까?')) {
+      let words = wordsList.filter(word => {
+        return word.id !== id;
+      })
+  
+      setWordsList(words);
+    }
   }
 
   return (
