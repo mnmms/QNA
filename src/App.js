@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './App.css';
+import './style/App.css';
 import WordsList from './WordsList';
 import GotoTest from './GotoTest';
 import AddWords from './AddWords';

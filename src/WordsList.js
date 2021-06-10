@@ -1,5 +1,5 @@
 import React from 'react';
-import './WordsList.css';
+import './style/WordsList.css';
 import Words from './Words';
 
 

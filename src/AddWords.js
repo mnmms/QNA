@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddWords.css';
+import './style/AddWords.css';
 
 const AddWords = ({ english, korean, onChange, onSave }) => {
     return (

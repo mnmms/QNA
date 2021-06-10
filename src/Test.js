@@ -1,5 +1,5 @@
 import React from 'react';
-import './Test.css';
+import './style/Test.css';
 
 const Test = ({ history }) => {
     return (
