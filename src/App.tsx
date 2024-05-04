@@ -1,40 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useRef, useState} from 'react';
 import './style/App.css';
 import WordList from './WordList';
 import GotoTest from './GotoTest';
 import AddWord from './AddWord';
+import { Card } from "@mui/material";
 
 const App: React.FC = () => {
-  useEffect(() => {
-    // console.log('useEffect 실행');
-    return () => console.log('cleanup 함수 호출');
-  }, []);
 
   const [wordList, setWordList] = useState([
     {
       id: 1,
       english: 'apple',
       korean: '사과',
-    },
-    {
-      id: 2,
-      english: 'korean',
-      korean: '한글',
-    },
-    {
-      id: 3,
-      english: 'bag',
-      korean: '가방',
-    },
-    {
-      id: 4,
-      english: 'book',
-      korean: '책',
-    },
-    {
-      id: 5,
-      english: 'people',
-      korean: '사람들',
     },
   ]);
   const [addWord, setAddWord] = useState({
@@ -86,18 +63,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
-      <div className="container">
-        <AddWord
-          english={english}
-          korean={korean}
-          onChange={onChange}
-          onSave={onSave}
-        />
-        <GotoTest />
-        <WordList wordList={wordList} onRemove={onRemove} />
-      </div>
-    </div>
+    <Card className="container">
+      <AddWord
+        english={english}
+        korean={korean}
+        onChange={onChange}
+        onSave={onSave}
+      />
+      <GotoTest />
+      <WordList wordList={wordList} onRemove={onRemove} />
+    </Card>
   );
 };
 
