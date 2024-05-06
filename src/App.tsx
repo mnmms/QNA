@@ -1,78 +1,50 @@
-import React, {useRef, useState} from 'react';
-import './style/App.css';
-import WordList from './WordList';
-import GotoTest from './GotoTest';
-import AddWord from './AddWord';
-import { Card } from "@mui/material";
+import React, { useRef, useState } from "react";
+import List from "./List";
+import GotoTest from "./GotoTest";
+import AddQNA from "./AddQNA";
+import { Box, Grid } from "@mui/material";
+import { QNA, QNAForm } from "./type";
+import { SubmitHandler } from "react-hook-form";
 
 const App: React.FC = () => {
-
-  const [wordList, setWordList] = useState([
-    {
-      id: 1,
-      english: 'apple',
-      korean: '사과',
-    },
+  const [list, setList] = useState<QNA[]>([
+    { id: 0, question: "key", answer: "value" },
   ]);
-  const [addWord, setAddWord] = useState({
-    korean: '',
-    english: '',
-  });
 
-  const { korean, english } = addWord;
   const nextId = useRef(6);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddWord({
-      ...addWord,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const onSave = () => {
-    if (english === '' || korean === '') {
-      // alert('영단어와 뜻 모두 입력해주세요!');
-      setAddWord({
-        korean: '',
-        english: '',
+  const deleteHandler = (id: number) => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      const filterList = list.filter((item) => {
+        return item.id !== id;
       });
-    } else {
-      setWordList([
-        ...wordList,
-        {
-          id: nextId.current,
-          // korean: korean,
-          // english: english,
-          ...addWord,
-        },
-      ]);
-      setAddWord({
-        korean: '',
-        english: '',
-      });
-      nextId.current++;
+      setList(filterList);
     }
   };
 
-  const onRemove = (id: number) => {
-    if (window.confirm('정말 삭제하시겠습니까?')) {
-      let wordData = wordList.filter((word) => {
-        return word.id !== id;
-      });
-      setWordList(wordData);
-    }
+  const submitHandler: SubmitHandler<QNAForm> = (qna: QNAForm) => {
+    setList([
+      ...list,
+      {
+        id: nextId.current,
+        ...qna,
+      },
+    ]);
+    nextId.current++;
   };
 
   return (
-    <Card className="container">
-      <AddWord
-        english={english}
-        korean={korean}
-        onChange={onChange}
-        onSave={onSave}
-      />
-      <GotoTest />
-      <WordList wordList={wordList} onRemove={onRemove} />
-    </Card>
+    <Box sx={{ p: 2 }}>
+      <Grid container>
+        <Grid item xs={10}>
+          <AddQNA submitHandler={submitHandler} />
+          <List list={list} deleteHandler={deleteHandler} />
+        </Grid>
+        <Grid item xs={2}>
+          <GotoTest />
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

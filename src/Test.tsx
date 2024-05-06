@@ -1,18 +1,18 @@
-import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
-import './style/Test.css';
+import React from "react";
+import { RouteComponentProps } from "react-router-dom";
+import { Box, Button } from "@mui/material";
 
 interface ChildComponentProps {
-  history: RouteComponentProps['history'];
+  history: RouteComponentProps["history"];
 }
 
 const Test: React.FC<ChildComponentProps> = ({ history }) => {
   return (
-    <div>
-      <button onClick={() => history.push('/')} style={{ color: 'black' }}>
+    <Box>
+      <Button variant={"contained"} onClick={() => history.goBack()}>
         돌아가기
-      </button>
-    </div>
+      </Button>
+    </Box>
   );
 };
 
