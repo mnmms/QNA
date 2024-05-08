@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/eslint": "^8.56.10",
     "@types/prettier": "^2.6.3",
+    "express": "^4.19.2",
     "highlight.js": "^11.9.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
